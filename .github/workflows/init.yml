@@ -1,0 +1,90 @@
+name: Build Site
+
+on:
+  push:
+    branches: [ main, master ]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Create structure
+        run: |
+          declare -A works
+          works[pushkin]="kapitanskaya_dochka pikovaya_dama tsygani"
+          works[gogol]="shinel revizor"
+          works[lermontov]="mcyri"
+          works[shekspir]="romeo_i_dzhuletta"
+          works[grin]="alye_parusa"
+          works[ekzuperi]="malenkiy_princ"
+          works[shukshin]="chudik"
+          works[turgenev]="asya"
+          
+          for author in "${!works[@]}"; do
+            mkdir -p "$author"
+            cat > "$author/index.html" << 'INDEX'
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script>window.location.href='../?a=AUTHOR_ID';</script>
+</head>
+<body></body>
+</html>
+INDEX
+            sed -i "s/AUTHOR_ID/$author/g" "$author/index.html"
+            
+            for work in ${works[$author]}; do
+              mkdir -p "$author/$work"
+              cat > "$author/$work/index.html" << 'WORK'
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script>window.location.href='../../?a=AUTHOR_ID&w=WORK_ID';</script>
+</head>
+<body></body>
+</html>
+WORK
+              sed -i "s/AUTHOR_ID/$author/g" "$author/$work/index.html"
+              sed -i "s/WORK_ID/$work/g" "$author/$work/index.html"
+            done
+          done
+      
+      - name: Commit
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add .
+          git diff --cached --quiet || git commit -m "Auto: create structure"
+          git push || true
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      - name: Upload
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
