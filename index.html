@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Литературный портал</title>
+<title>Дидактический материал 9 класс</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
@@ -22,27 +22,31 @@ body{font-family:var(--body);background:#f4f4f4;color:var(--dark);height:100vh;o
 .logo{font-family:var(--head);font-size:1.8rem;margin-bottom:15px;display:flex;align-items:center;gap:10px;color:var(--accent)}
 .home-btn{width:100%;padding:10px;margin-bottom:15px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:8px;cursor:pointer;transition:.3s;font-size:14px;display:flex;align-items:center;justify-content:center;gap:8px}
 .home-btn:hover{background:var(--accent);border-color:var(--accent)}
-.class-filter{background:rgba(255,255,255,.1);border-radius:12px;padding:15px;margin-bottom:15px}
-.filter-label{font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;display:block;opacity:.8}
-.toggle-wrap{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-.toggle-text{font-size:13px;font-weight:500}
-.toggle-switch{position:relative;width:50px;height:26px;background:rgba(255,255,255,.2);border-radius:13px;cursor:pointer;transition:.3s}
-.toggle-switch::after{content:'';position:absolute;width:22px;height:22px;background:#fff;border-radius:50%;top:2px;left:2px;transition:.3s;box-shadow:0 2px 4px rgba(0,0,0,.2)}
-.toggle-switch.active{background:var(--accent)}
-.toggle-switch.active::after{left:26px}
-.show-all{display:flex;align-items:center;gap:8px;font-size:12px;cursor:pointer;padding:8px;border-radius:6px;transition:.2s;background:rgba(255,255,255,.05)}
-.show-all:hover{background:rgba(255,255,255,.15)}
-.show-all input{width:16px;height:16px;cursor:pointer;accent-color:var(--accent)}
+.class-info{background:rgba(255,255,255,.1);border-radius:12px;padding:15px;margin-bottom:15px;text-align:center}
+.class-info .label{font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.8;margin-bottom:5px;display:block}
+.class-info .value{font-size:1.5rem;font-weight:600;color:var(--accent)}
 .search input{width:100%;padding:10px;border-radius:5px;border:none;background:rgba(255,255,255,.1);color:#fff;margin-bottom:15px;font-size:14px}
 .search input::placeholder{color:rgba(255,255,255,.5)}
 .authors{list-style:none;overflow-y:auto;flex-grow:1}
 .authors::-webkit-scrollbar{width:5px}
 .authors::-webkit-scrollbar-thumb{background:var(--accent);border-radius:5px}
-.authors li{padding:12px 15px;cursor:pointer;border-radius:8px;transition:.3s;border-bottom:1px solid rgba(255,255,255,.05);font-size:14px;display:flex;align-items:center;gap:10px}
+.authors li{padding:12px 15px;cursor:pointer;border-radius:8px;transition:.3s;border-bottom:1px solid rgba(255,255,255,.05);font-size:14px}
 .authors li:hover{background:rgba(255,255,255,.1);padding-left:20px;color:var(--accent)}
 .authors li.active{background:var(--accent);color:#fff}
-.authors li .cls-tag{font-size:10px;background:rgba(255,255,255,.2);padding:2px 6px;border-radius:10px;margin-left:auto}
-.main{flex-grow:1;padding:40px;overflow-y:auto;background:#fdfdfd;width:100%}
+.main{flex-grow:1;padding:40px;overflow-y:auto;background:#fdfdfd;width:100%;position:relative}
+.cover{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,var(--sidebar) 0%,#1a252f 100%);z-index:2000;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff;text-align:center;padding:40px;animation:fadeIn 1s ease}
+.cover.hidden{opacity:0;pointer-events:none;transition:opacity .8s ease}
+.cover-content{max-width:800px}
+.cover h1{font-family:var(--head);font-size:4rem;margin-bottom:20px;line-height:1.2}
+.cover h2{font-family:var(--head);font-size:2rem;color:var(--accent);margin-bottom:60px;font-weight:400}
+.credits{background:rgba(255,255,255,.1);border-radius:20px;padding:40px;margin-bottom:60px;border:1px solid rgba(255,255,255,.2)}
+.credit-item{margin-bottom:30px}
+.credit-item:last-child{margin-bottom:0}
+.credit-label{font-size:12px;text-transform:uppercase;letter-spacing:2px;opacity:.7;margin-bottom:10px}
+.credit-name{font-size:1.5rem;font-weight:600;margin-bottom:8px}
+.credit-desc{font-size:1rem;opacity:.8;line-height:1.6}
+.cover-btn{padding:18px 50px;background:var(--accent);color:#fff;border:none;border-radius:50px;font-size:1.1rem;font-weight:500;cursor:pointer;transition:.3s;font-family:var(--body)}
+.cover-btn:hover{background:var(--hover);transform:translateY(-3px);box-shadow:0 10px 30px rgba(211,84,0,.4)}
 .welcome{text-align:center;margin-top:10%;animation:fadeIn 1s ease;padding:20px}
 .welcome h1{font-family:var(--head);font-size:3.5rem;color:var(--sidebar);line-height:1.2}
 .welcome h2{font-family:var(--head);font-size:1.8rem;color:var(--accent);margin-bottom:20px}
@@ -95,6 +99,10 @@ body{font-family:var(--body);background:#f4f4f4;color:var(--dark);height:100vh;o
 .sidebar{position:fixed;height:100vh;width:280px;transform:translateX(-100%)}
 .sidebar.open{transform:translateX(0)}
 .main{padding:80px 20px 20px}
+.cover h1{font-size:2.5rem}
+.cover h2{font-size:1.3rem}
+.credits{padding:25px}
+.credit-name{font-size:1.2rem}
 .welcome h1{font-size:2.2rem}
 .welcome h2{font-size:1.3rem}
 .header-wrap{flex-direction:column;align-items:flex-start}
@@ -111,6 +119,26 @@ body{font-family:var(--body);background:#f4f4f4;color:var(--dark);height:100vh;o
 </head>
 <body>
 
+<div class="cover" id="cover">
+<div class="cover-content">
+<h1>Дидактический материал</h1>
+<h2>по русской литературе 9 класс</h2>
+<div class="credits">
+<div class="credit-item">
+<div class="credit-label">Сайт составлен</div>
+<div class="credit-name">Алиханом</div>
+<div class="credit-desc">учеником 8 класса</div>
+</div>
+<div class="credit-item">
+<div class="credit-label">Проверено</div>
+<div class="credit-name">Жибек Амантаевной</div>
+<div class="credit-desc">учителем русского языка и литературы<br>с более чем 40-летним стажем</div>
+</div>
+</div>
+<button class="cover-btn" onclick="enterSite()"><i class="fas fa-book-open"></i> Перейти к материалам</button>
+</div>
+</div>
+
 <button class="menu-btn" id="menuBtn" onclick="toggleMenu()">
 <span></span><span></span><span></span>
 </button>
@@ -119,17 +147,9 @@ body{font-family:var(--body);background:#f4f4f4;color:var(--dark);height:100vh;o
 <aside class="sidebar" id="sidebar">
 <div class="logo"><i class="fas fa-feather-alt"></i><span>Литература</span></div>
 <button class="home-btn" onclick="goHome()"><i class="fas fa-home"></i>На главную</button>
-<div class="class-filter">
-<span class="filter-label">Фильтр по классу</span>
-<div class="toggle-wrap">
-<span class="toggle-text">8</span>
-<div class="toggle-switch active" id="classToggle" onclick="toggleClass()"></div>
-<span class="toggle-text">9</span>
-</div>
-<label class="show-all">
-<input type="checkbox" id="showAll" onchange="toggleShowAll()">
-<span>Показать все классы</span>
-</label>
+<div class="class-info">
+<span class="label">Класс</span>
+<span class="value">9</span>
 </div>
 <div class="search"><input type="text" id="search" placeholder="Поиск автора..." oninput="filterAuthors(this.value)"></div>
 <ul class="authors" id="authorList"></ul>
@@ -137,9 +157,9 @@ body{font-family:var(--body);background:#f4f4f4;color:var(--dark);height:100vh;o
 
 <main class="main" id="main">
 <div class="welcome" id="welcome">
-<h1>Дидактический материал</h1>
-<h2>по русской литературе 8-9 классов</h2>
-<p>Интерактивная библиотека для углубленного изучения классической литературы.</p>
+<h1>9 класс</h1>
+<h2>Мировая литература и русская проза</h2>
+<p>Шекспир, Грин, Экзюпери, Шукшин, Тургенев, Пушкин</p>
 <div class="hint"><i class="fas fa-bars"></i> Выберите автора в меню слева</div>
 </div>
 </main>
@@ -161,42 +181,38 @@ body{font-family:var(--body);background:#f4f4f4;color:var(--dark);height:100vh;o
 
 <script>
 const data=[
-{n:"Александр Сергеевич Пушкин",id:"pushkin",c:[8,9],w:[
-{t:"Капитанская дочка",h:"Исторический роман 1836 года. Пушкин изучал архивы пугачёвского бунта.",cls:8,txt:"https://ilibrary.ru/text/107/p.1/index.html",aud:["https://www.youtube.com/watch?v=DGdPJPvHJA0"],the:["https://www.youtube.com/watch?v=d2su6AVDHFg"],mov:["https://www.youtube.com/watch?v=aK7LP2ipWQY"],img:"https://www.google.com/search?tbm=isch&q=капитанская+дочка"},
-{t:"Пиковая дама",h:"Мистическая повесть 1834 года. Сюжет подсказан князем Голицыным.",cls:8,txt:"https://ilibrary.ru/text/480/index.html",aud:["https://www.youtube.com/watch?v=1Xw3tZe1ujI"],the:["https://www.youtube.com/watch?v=FcHHNZdNZt4"],mov:["https://www.youtube.com/watch?v=hvW37lK1nfM"],img:"https://www.google.com/search?tbm=isch&q=пиковая+дама"},
-{t:"Цыганы",h:"Поэма 1824 года. Развенчание мифа о «естественном человеке».",cls:9,txt:"https://ilibrary.ru/text/445/index.html",aud:["https://www.youtube.com/watch?v=Xg4lQKtF7og","https://www.youtube.com/watch?v=9xJqPUXOvio"],the:["https://www.youtube.com/watch?v=mazh5MGA9pE"],mov:[],img:"https://www.google.com/search?tbm=isch&q=цыганы+пушкин"}
+{n:"Александр Сергеевич Пушкин",id:"pushkin",w:[
+{t:"Цыганы",h:"Поэма 1824 года. Развенчание мифа о «естественном человеке».",txt:"https://ilibrary.ru/text/445/index.html",aud:["https://www.youtube.com/watch?v=Xg4lQKtF7og","https://www.youtube.com/watch?v=9xJqPUXOvio"],the:["https://www.youtube.com/watch?v=mazh5MGA9pE"],mov:[],img:"https://www.google.com/search?tbm=isch&q=цыганы+пушкин"}
 ]},
-{n:"Николай Васильевич Гоголь",id:"gogol",c:[8],w:[
-{t:"Шинель",h:"Повесть 1842 года. Трагедия «маленького человека».",cls:8,txt:"https://ilibrary.ru/text/980/p.1/index.html",aud:["https://www.youtube.com/watch?v=VfmueRZCT-I"],the:["https://www.youtube.com/watch?v=JlUR9fExFeM"],mov:["https://www.youtube.com/watch?v=TPlNf_nTVkY"],img:"https://www.google.com/search?tbm=isch&q=шинель"},
-{t:"Ревизор",h:"Комедия 1836 года. Сюжет подсказал Пушкин.",cls:8,txt:"https://ilibrary.ru/text/473/p.1/index.html",aud:["https://www.youtube.com/watch?v=1VixKwbPr-w"],the:["https://www.youtube.com/watch?v=cbOJsvs6_HQ"],mov:["https://www.youtube.com/watch?v=HykkSSdeyk0","https://www.youtube.com/watch?v=UIM9wSOzJV0","https://www.youtube.com/watch?v=EpaAUdlvKRU"],img:"https://www.google.com/search?tbm=isch&q=ревизор"}
+{n:"Уильям Шекспир",id:"shekspir",w:[
+{t:"Ромео и Джульетта",h:"Трагедия около 1595 года. Символ любви.",txt:"https://ilibrary.ru/text/4550/p.1/index.html",aud:["https://www.youtube.com/watch?v=6qbRjngnXJ8"],the:["https://www.youtube.com/watch?v=0G6Kbg79g9A"],mov:["https://www.youtube.com/watch?v=IWpBgAvHcj8"],img:"https://www.google.com/search?tbm=isch&q=ромео+и+джульетта"}
 ]},
-{n:"Михаил Юрьевич Лермонтов",id:"lermontov",c:[8],w:[
-{t:"Мцыри",h:"Поэма 1839 года. Символ свободы и борьбы.",cls:8,txt:"https://ilibrary.ru/text/991/index.html",aud:["https://www.youtube.com/watch?v=Bie1TnmBc70"],the:["https://www.youtube.com/watch?v=WrctEJxDA1Q"],mov:[],img:"https://www.google.com/search?tbm=isch&q=мцыри"}
+{n:"Александр Грин",id:"grin",w:[
+{t:"Алые паруса",h:"Повесть 1923 года. Символ исполнившейся мечты.",txt:"https://ilibrary.ru/text/1845/p.1/index.html",aud:["https://www.youtube.com/watch?v=VYQi1Bc2U14"],the:["https://www.youtube.com/watch?v=i0h6tllIEmE"],mov:["https://www.youtube.com/watch?v=5YzwW4hxrx4"],img:"https://www.google.com/search?tbm=isch&q=алые+паруса"}
 ]},
-{n:"Уильям Шекспир",id:"shekspir",c:[9],w:[
-{t:"Ромео и Джульетта",h:"Трагедия около 1595 года. Символ любви.",cls:9,txt:"https://ilibrary.ru/text/4550/p.1/index.html",aud:["https://www.youtube.com/watch?v=6qbRjngnXJ8"],the:["https://www.youtube.com/watch?v=0G6Kbg79g9A"],mov:["https://www.youtube.com/watch?v=IWpBgAvHcj8"],img:"https://www.google.com/search?tbm=isch&q=ромео+и+джульетта"}
+{n:"Антуан де Сент-Экзюпери",id:"ekzuperi",w:[
+{t:"Маленький принц",h:"Повесть 1942 года. Философская сказка.",txt:"https://deti-online.com/skazki/malenkiy-princ/",aud:["https://www.youtube.com/watch?v=DUJlTHXWGNE"],the:["https://www.youtube.com/watch?v=S5Rt9AaGgbw"],mov:["https://www.youtube.com/watch?v=BNAVhxwdJEE"],img:"https://www.google.com/search?tbm=isch&q=маленький+принц"}
 ]},
-{n:"Александр Грин",id:"grin",c:[9],w:[
-{t:"Алые паруса",h:"Повесть 1923 года. Символ исполнившейся мечты.",cls:9,txt:"https://ilibrary.ru/text/1845/p.1/index.html",aud:["https://www.youtube.com/watch?v=VYQi1Bc2U14"],the:["https://www.youtube.com/watch?v=i0h6tllIEmE"],mov:["https://www.youtube.com/watch?v=5YzwW4hxrx4"],img:"https://www.google.com/search?tbm=isch&q=алые+паруса"}
+{n:"В.М. Шукшин",id:"shukshin",w:[
+{t:"Чудик",h:"Рассказ о деревенских людях.",txt:"https://lib.ru/SHUKSHIN/shukshin_chudik.txt",aud:["https://www.youtube.com/watch?v=hfKeg-58rPo"],the:[],mov:[],img:"https://www.google.com/search?tbm=isch&q=чудик+шукшин"}
 ]},
-{n:"Антуан де Сент-Экзюпери",id:"ekzuperi",c:[9],w:[
-{t:"Маленький принц",h:"Повесть 1942 года. Философская сказка.",cls:9,txt:"https://deti-online.com/skazki/malenkiy-princ/",aud:["https://www.youtube.com/watch?v=DUJlTHXWGNE"],the:["https://www.youtube.com/watch?v=S5Rt9AaGgbw"],mov:["https://www.youtube.com/watch?v=BNAVhxwdJEE"],img:"https://www.google.com/search?tbm=isch&q=маленький+принц"}
-]},
-{n:"В.М. Шукшин",id:"shukshin",c:[9],w:[
-{t:"Чудик",h:"Рассказ о деревенских людях.",cls:9,txt:"https://lib.ru/SHUKSHIN/shukshin_chudik.txt",aud:["https://www.youtube.com/watch?v=hfKeg-58rPo"],the:[],mov:[],img:"https://www.google.com/search?tbm=isch&q=чудик+шукшин"}
-]},
-{n:"Иван Сергеевич Тургенев",id:"turgenev",c:[9],w:[
-{t:"Ася",h:"Повесть 1858 года. О «лишних людях».",cls:9,txt:"https://ilibrary.ru/text/1097/p.1/index.html",aud:["https://www.youtube.com/watch?v=r7murt_YLYE"],the:[],mov:[],img:"https://www.google.com/search?tbm=isch&q=ася+тургенев"}
+{n:"Иван Сергеевич Тургенев",id:"turgenev",w:[
+{t:"Ася",h:"Повесть 1858 года. О «лишних людях».",txt:"https://ilibrary.ru/text/1097/p.1/index.html",aud:["https://www.youtube.com/watch?v=r7murt_YLYE"],the:[],mov:[],img:"https://www.google.com/search?tbm=isch&q=ася+тургенев"}
 ]}
 ];
 
-let currentClass=9;
-let showAll=false;
 let currentAuthor=null;
+let coverShown=false;
+
+function enterSite(){
+document.getElementById('cover').classList.add('hidden');
+coverShown=true;
+setTimeout(()=>{
+document.getElementById('cover').style.display='none';
+},800);
+}
 
 function init(){
-const t=document.getElementById('classToggle');
-t.classList.toggle('active',currentClass===9);
 renderAuthors();
 const p=new URLSearchParams(window.location.search);
 const a=p.get('a'),w=p.get('w');
@@ -205,6 +221,9 @@ const d=data.find(x=>x.id===a);
 if(d){
 currentAuthor=d;
 showAuthor(d,w);
+if(coverShown||document.getElementById('cover').classList.contains('hidden')){
+enterSite();
+}
 }
 }
 }
@@ -213,55 +232,21 @@ function slug(s){const m={'а':'a','б':'b','в':'v','г':'g','д':'d','е':'e',
 
 function goHome(){
 currentAuthor=null;
-document.getElementById('main').innerHTML='<div class="welcome" id="welcome"><h1>Дидактический материал</h1><h2>по русской литературе 8-9 классов</h2><p>Интерактивная библиотека для углубленного изучения классической литературы.</p><div class="hint"><i class="fas fa-bars"></i> Выберите автора в меню слева</div></div>';
+document.getElementById('main').innerHTML='<div class="welcome" id="welcome"><h1>9 класс</h1><h2>Мировая литература и русская проза</h2><p>Шекспир, Грин, Экзюпери, Шукшин, Тургенев, Пушкин</p><div class="hint"><i class="fas fa-bars"></i> Выберите автора в меню слева</div></div>';
 document.querySelectorAll('.authors li').forEach(i=>i.classList.remove('active'));
 const url=new URL(window.location);
 url.search='';
 window.history.pushState({},'',url);
-updateWelcome();
-}
-
-function toggleClass(){
-if(showAll){
-document.getElementById('showAll').checked=false;
-showAll=false;
-}
-currentClass=currentClass===8?9:8;
-document.getElementById('classToggle').classList.toggle('active',currentClass===9);
-updateWelcome();
-renderAuthors(document.getElementById('search').value);
-if(currentAuthor)showAuthor(currentAuthor);
-}
-
-function toggleShowAll(){
-showAll=!showAll;
-updateWelcome();
-renderAuthors(document.getElementById('search').value);
-if(currentAuthor)showAuthor(currentAuthor);
-}
-
-function updateWelcome(){
-const w=document.getElementById('welcome');
-if(!w)return;
-if(showAll){
-w.innerHTML='<h1>Все классы</h1><h2>8 и 9 класс</h2><p>Полный список произведений школьной программы.</p>';
-}else if(currentClass===8){
-w.innerHTML='<h1>8 класс</h1><h2>Пушкин, Гоголь, Лермонтов</h2><p>Классическая русская литература первой половины XIX века.</p>';
-}else{
-w.innerHTML='<h1>9 класс</h1><h2>Мировая литература и русская проза</h2><p>Шекспир, Грин, Экзюпери, Шукшин, Тургенев.</p>';
-}
 }
 
 function renderAuthors(q){
 const l=document.getElementById('authorList');
 l.innerHTML='';
 data.forEach(a=>{
-const visible=showAll||a.c.includes(currentClass);
 const match=!q||a.n.toLowerCase().includes(q.toLowerCase());
-if(visible&&match){
+if(match){
 const li=document.createElement('li');
-const tags=a.c.map(c=>`<span class="cls-tag">${c}</span>`).join('');
-li.innerHTML=`<span>${a.n}</span>${tags}`;
+li.textContent=a.n;
 li.onclick=()=>{
 document.querySelectorAll('.authors li').forEach(i=>i.classList.remove('active'));
 li.classList.add('active');
@@ -279,17 +264,12 @@ function filterAuthors(q){renderAuthors(q);}
 function showAuthor(a,wid){
 currentAuthor=a;
 const m=document.getElementById('main');
-const works=showAll?a.w:a.w.filter(x=>x.cls===currentClass||showAll);
-if(works.length===0){
-m.innerHTML='<div class="header-wrap"><button class="back-btn" onclick="goHome()"><i class="fas fa-arrow-left"></i>Назад</button><h1 class="header">'+a.n+'</h1></div><p style="color:#666;padding:20px;">Нет произведений для выбранного класса. Включите "Показать все классы" или смените класс.</p>';
-return;
-}
 let html='<div class="header-wrap"><button class="back-btn" onclick="goHome()"><i class="fas fa-arrow-left"></i>Назад</button><h1 class="header">'+a.n+'</h1></div><div class="grid">';
-works.forEach((w,i)=>{
+a.w.forEach((w,i)=>{
 const ha=w.aud.length,ht=w.the.length,hm=w.mov.length;
 const ws=slug(w.t);
 const active=wid===ws?'open':'';
-html+=`<div class="card"><div class="card-header" onclick="toggleCard(this,'${ws}')"><h3>${w.t}</h3><div class="sub">${w.cls} класс · Нажмите для подробностей</div></div><div class="card-body ${active}" id="body-${ws}"><div class="card-inner"><div class="history">${w.h}</div><div class="links"><a href="${w.txt}" target="_blank" class="link"><i class="fas fa-book-reader"></i><span>Читать текст</span></a>${ha?`<div class="link" style="flex-direction:column;align-items:flex-start;"><div style="display:flex;align-items:center;gap:10px;width:100%;"><i class="fas fa-headphones"></i><span>Аудиокнига${ha>1?' ('+ha+')':''}</span>${ha>1?'<span class="badge">'+ha+'</span>':''}</div><div class="videos">${w.aud.map((l,j)=>`<a href="${l}" target="_blank" class="video"><i class="fas fa-play-circle"></i>Вариант ${j+1}</a>`).join('')}</div></div>`:''}${ht?`<div class="link" style="flex-direction:column;align-items:flex-start;"><div style="display:flex;align-items:center;gap:10px;width:100%;"><i class="fas fa-theater-masks"></i><span>Спектакль${ht>1?' ('+ht+')':''}</span></div><div class="videos">${w.the.map((l,j)=>`<a href="${l}" target="_blank" class="video"><i class="fas fa-play-circle"></i>Постановка ${j+1}</a>`).join('')}</div></div>`:''}${hm?`<div class="link" style="flex-direction:column;align-items:flex-start;"><div style="display:flex;align-items:center;gap:10px;width:100%;"><i class="fas fa-film"></i><span>Экранизация${hm>1?' ('+hm+')':''}</span>${hm>1?'<span class="badge">'+hm+'</span>':''}</div><div class="videos">${w.mov.map((l,j)=>`<a href="${l}" target="_blank" class="video"><i class="fas fa-play-circle"></i>Фильм ${j+1}</a>`).join('')}</div></div>`:''}${w.img?`<a href="${w.img}" target="_blank" class="link"><i class="fas fa-images"></i><span>Иллюстрации</span></a>`:''}</div><div class="btn"><button onclick="openModal('${a.id}',${i},event)"><i class="fas fa-expand"></i>Подробнее</button></div></div></div></div>`;
+html+=`<div class="card"><div class="card-header" onclick="toggleCard(this,'${ws}')"><h3>${w.t}</h3><div class="sub">Нажмите для подробностей</div></div><div class="card-body ${active}" id="body-${ws}"><div class="card-inner"><div class="history">${w.h}</div><div class="links"><a href="${w.txt}" target="_blank" class="link"><i class="fas fa-book-reader"></i><span>Читать текст</span></a>${ha?`<div class="link" style="flex-direction:column;align-items:flex-start;"><div style="display:flex;align-items:center;gap:10px;width:100%;"><i class="fas fa-headphones"></i><span>Аудиокнига${ha>1?' ('+ha+')':''}</span>${ha>1?'<span class="badge">'+ha+'</span>':''}</div><div class="videos">${w.aud.map((l,j)=>`<a href="${l}" target="_blank" class="video"><i class="fas fa-play-circle"></i>Вариант ${j+1}</a>`).join('')}</div></div>`:''}${ht?`<div class="link" style="flex-direction:column;align-items:flex-start;"><div style="display:flex;align-items:center;gap:10px;width:100%;"><i class="fas fa-theater-masks"></i><span>Спектакль${ht>1?' ('+ht+')':''}</span></div><div class="videos">${w.the.map((l,j)=>`<a href="${l}" target="_blank" class="video"><i class="fas fa-play-circle"></i>Постановка ${j+1}</a>`).join('')}</div></div>`:''}${hm?`<div class="link" style="flex-direction:column;align-items:flex-start;"><div style="display:flex;align-items:center;gap:10px;width:100%;"><i class="fas fa-film"></i><span>Экранизация${hm>1?' ('+hm+')':''}</span>${hm>1?'<span class="badge">'+hm+'</span>':''}</div><div class="videos">${w.mov.map((l,j)=>`<a href="${l}" target="_blank" class="video"><i class="fas fa-play-circle"></i>Фильм ${j+1}</a>`).join('')}</div></div>`:''}${w.img?`<a href="${w.img}" target="_blank" class="link"><i class="fas fa-images"></i><span>Иллюстрации</span></a>`:''}</div><div class="btn"><button onclick="openModal('${a.id}',${i},event)"><i class="fas fa-expand"></i>Подробнее</button></div></div></div></div>`;
 });
 html+='</div>';
 m.innerHTML=html;
@@ -315,7 +295,7 @@ if(ev)ev.stopPropagation();
 const a=data.find(x=>x.id===aid),w=a.w[idx];
 document.getElementById('mTitle').textContent=w.t;
 document.getElementById('mAuthor').textContent=a.n;
-document.getElementById('mText').innerHTML=`<p>${w.h}</p><p style="margin-top:15px;color:#666;font-size:.9rem;">${w.cls} класс · Школьная программа.</p>`;
+document.getElementById('mText').innerHTML=`<p>${w.h}</p><p style="margin-top:15px;color:#666;font-size:.9rem;">9 класс · Школьная программа.</p>`;
 let h=`<a href="${w.txt}" target="_blank" class="modal-card"><i class="fas fa-book-reader"></i><span>Текст</span></a>`;
 if(w.aud.length)h+=`<a href="${w.aud[0]}" target="_blank" class="modal-card"><i class="fas fa-headphones"></i><span>Аудио${w.aud.length>1?' ('+w.aud.length+')':''}</span></a>`;
 if(w.the.length)h+=`<a href="${w.the[0]}" target="_blank" class="modal-card"><i class="fas fa-theater-masks"></i><span>Спектакль${w.the.length>1?' ('+w.the.length+')':''}</span></a>`;
